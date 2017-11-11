@@ -13,7 +13,8 @@ ONE_MONTH = 60 * 60 * 24 * 30
 
 # app = Flask(__name__, template_folder='../../templates/r',
 #             static_folder='../../static')
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates/r',
+            static_folder='../static')
 app.config.from_object('config')
 
 app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
@@ -126,9 +127,6 @@ def s(symlink):
     paste_file = PasteFile.get_by_symlink(symlink)
 
     return redirect(paste_file.url_p)
-@app.route('/index2/')
-def test():
-    return render_template('test1.html')
 
 
 if __name__ == '__main__':

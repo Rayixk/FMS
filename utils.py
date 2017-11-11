@@ -35,4 +35,8 @@ def humanize_bytes(bytesize, precision=2):
     return '%.*f %s' % (precision, bytesize / factor, suffix)
 
 
+if not os.path.exists(os.path.join(HERE, UPLOAD_FOLDER)):
+    os.makedirs(os.path.join(HERE, UPLOAD_FOLDER))
+
+
 get_file_path = partial(os.path.join, HERE, UPLOAD_FOLDER)

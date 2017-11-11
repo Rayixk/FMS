@@ -80,7 +80,8 @@ class PasteFile(db.Model):
     @classmethod
     def create_by_old_paste(cls, filehash):
         filepath = get_file_path(filehash)
-        mimetype = magic.from_file(filepath, mime=True)
+        # mimetype = magic.from_file(filepath, mime=True)
+        mimetype = "image/png"
         filestat = os.stat(filepath)
         size = filestat.st_size
 
